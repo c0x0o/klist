@@ -2,7 +2,7 @@
 
 ## intro
 
-This project is inspired by list implemented in Linux Kernel. If you are familiar with Linux Kernel, you will not meet any barrier when using it. I rewrite the code with c99 standard to remove all hardware and system details, making it suitable for general C application. And I also add some useful interface such as 'concat', 'push', 'pop', 'shift', 'unshift', i love JavaScipt :P
+This project is inspired by list implemented in Linux Kernel. If you are familiar with Linux Kernel, you will not meet any barrier when using it. I rewrite the code with c99 standard to remove all hardware and system details, making it suitable for general C application. And I also add some useful interfaces such as 'concat', 'push', 'pop', 'shift', 'unshift', i love JavaScript :P
 
 See these links if you still have doubts:
 1. [Linked Lists](https://kernelnewbies.org/FAQ/LinkedLists)
