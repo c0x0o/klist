@@ -1,6 +1,10 @@
 #ifndef _LIST_H_
 #define _LIST_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stddef.h>
 
 #ifndef _DS_SHARED_MACRO_
@@ -86,5 +90,9 @@ struct list *list_splice_tail(struct list *part, struct list *head);
 #define list_pop(head) list_del((head)->next)
 #define list_shift(head) list_del((head)->prev)
 #define list_unshift(node, head) list_add_tail(node, head)
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
