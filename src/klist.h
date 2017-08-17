@@ -28,42 +28,42 @@ struct list {
         (ptr)!=(head); \
         ptr=(ptr)->next)
 
-#define list_for_each_safe(ptr, next, head) \
-    for(ptr=(head)->next, next=(ptr)->next; \
+#define list_for_each_safe(ptr, nextP, head) \
+    for(ptr=(head)->next, nextP=(ptr)->next; \
         (ptr)!=(head); \
-        ptr=next, next=(ptr)->next)
+        ptr=nextP, nextP=(ptr)->next)
 
 #define list_for_each_entry(ptr, head, member) \
     for(ptr=list_entry((head)->next, __typeof__(*ptr), member); \
         &((ptr)->member)!=(head); \
         ptr=list_entry(((ptr)->member.next), __typeof__(*ptr), member))
 
-#define list_for_each_entry_safe(ptr, next, head, member) \
+#define list_for_each_entry_safe(ptr, nextP, head, member) \
     for(ptr=list_entry((head)->next, __typeof__(*ptr), member), \
-        next=list_entry((ptr)->member.next, __typeof__(*ptr), member); \
+        nextP=list_entry((ptr)->member.next, __typeof__(*ptr), member); \
         &((ptr)->member)!=(head); \
-        ptr=next, next=list_entry((ptr)->member.next, __typeof__(*ptr), member))
+        ptr=nextP, nextP=list_entry((ptr)->member.next, __typeof__(*ptr), member))
 
 #define list_for_each_reverse(ptr, head) \
     for(ptr=(head)->prev; \
         ptr!=head; \
         ptr=ptr->prev)
 
-#define list_for_each_reverse_safe(prt, prev, head) \
-    for(ptr=(head)->prev, prev=ptr->prev; \
+#define list_for_each_reverse_safe(prt, prevP, head) \
+    for(ptr=(head)->prev, prevP=ptr->prev; \
         ptr!=head; \
-        ptr=prev, prev=ptr->prev)
+        ptr=prevP, prevP=ptr->prev)
 
 #define list_for_each_reverse_entry(ptr, head, member) \
     for(ptr=list_entry((head)->prev, __typeof__(*ptr), member); \
         &(ptr->member)!=(head); \
         ptr=list_entry(((ptr)->member.prev), __typeof__(*ptr), member))
 
-#define list_for_each_reverse_entry_safe(ptr, prev, head, member) \
+#define list_for_each_reverse_entry_safe(ptr, prevP, head, member) \
     for(ptr=list_entry((head)->prev, __typeof__(*ptr), member), \
-        prev=list_entry((ptr)->member.prev, __typeof__(*ptr), member); \
+        prevP=list_entry((ptr)->member.prev, __typeof__(*ptr), member); \
         &((ptr)->member)!=(head); \
-        ptr=prev, prev=list_entry((ptr)->member.prev, __typeof__(*ptr), member))
+        ptr=prevP, prevP=list_entry((ptr)->member.prev, __typeof__(*ptr), member))
 
 #define LIST_HEAD_INIT(list) {&(list), &(list)}
 #define LIST_HEAD(name) struct list name = LIST_HEAD_INIT(name)
